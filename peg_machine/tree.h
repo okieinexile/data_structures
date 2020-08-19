@@ -5,7 +5,8 @@
 #include <map>
 #include"peg_board_play.h"
 
-const PegBoardPlay INFINITY(32767);
+const pb_code NUMBER_OF_STATES = 32767;
+const PegBoardPlay INFINITY(NUMBER_OF_STATES);
 
 class Tree
 {
@@ -32,4 +33,6 @@ PegBoardPlay& Tree::predecessor(PegBoardPlay& node_code)
 {
   return this->pred[node_code];
 }
+
+
 #endif // TREE_H_INCLUDED

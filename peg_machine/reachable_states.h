@@ -9,11 +9,10 @@
 class ReachableStates 
 {
   private:
-    Tree tree;
     std::set<PegBoardPlay> final_states;
     std::vector<PegBoardPlay> working;
     size_t count;
-  
+    //Tree tree;
   public:
     ReachableStates(PegBoardPlay& my_root);
     void push_working(PegBoardPlay& pbp);
@@ -67,7 +66,7 @@ void ReachableStates::make_tree(void)
       {
         ++this->count;
         PegBoardPlay next = this->current().next_move();
-        this->tree.set_predecessor(this->current(), next);
+        //this->tree.set_predecessor(this->current(), next);
         this->push_working(next);
       }
       this->push_final_states(this->current());

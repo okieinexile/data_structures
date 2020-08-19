@@ -15,17 +15,9 @@ int main()
   rs.make_tree();
   std::cout << rs.number_final_states() << std::endl;
   final_set = rs.final();
-  std::ofstream data;
-  data.open("final_states.txt");
-  if(!data.fail())
+  for(PegBoardPlay pb : final_set)
   {
-    for(PegBoardPlay p : final_set)
-    {
-      if(p.complexity() < 20)
-      data << p << std::endl;
-    }
-  data.close();
+    std::cout << pb << std::endl;
   }
-
   return 0; 
 }
