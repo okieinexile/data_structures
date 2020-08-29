@@ -12,7 +12,7 @@ int main()
   ReachableStates rs(pbp);
   std::set<PegBoardPlay> final_set;
   std::set<PegBoardPlay>::iterator it;
-  rs.make_tree();
+  rs.find_all_final_states();
   std::cout << rs.number_final_states() << std::endl;
   final_set = rs.final();
   for(PegBoardPlay pb : final_set)

@@ -8,6 +8,7 @@
 const pb_code NUMBER_OF_STATES = 32767;
 const PegBoardPlay INFINITY(NUMBER_OF_STATES);
 
+
 class Tree
 {
   private:

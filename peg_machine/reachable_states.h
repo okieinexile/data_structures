@@ -12,7 +12,6 @@ class ReachableStates
     std::set<PegBoardPlay> final_states;
     std::vector<PegBoardPlay> working;
     size_t count;
-    //Tree tree;
   public:
     ReachableStates(PegBoardPlay& my_root);
     void push_working(PegBoardPlay& pbp);
@@ -20,7 +19,7 @@ class ReachableStates
     void push_final_states(PegBoardPlay& pbp);
     PegBoardPlay& current(void);
     bool can_go_back(void);
-    void make_tree(void);
+    void find_all_final_states(void);
     size_t number_final_states(void);
     std::set<PegBoardPlay> final(void);
 };
@@ -56,7 +55,7 @@ bool ReachableStates::can_go_back(void)
   return this->working.size() > 0;
 }
 
-void ReachableStates::make_tree(void)
+void ReachableStates::find_all_final_states(void)
 {
   while(true)
   {
@@ -66,7 +65,6 @@ void ReachableStates::make_tree(void)
       {
         ++this->count;
         PegBoardPlay next = this->current().next_move();
-        //this->tree.set_predecessor(this->current(), next);
         this->push_working(next);
       }
       this->push_final_states(this->current());
