@@ -1,0 +1,8 @@
+complexity = 1 frequency = 1
+complexity = 2 frequency = 8
+complexity = 3 frequency = 27
+complexity = 4 frequency = 32
+complexity = 5 frequency = 12
+complexity = 6 frequency = 6
+complexity = 7 frequency = 2
+complexity = 10 frequency = 1

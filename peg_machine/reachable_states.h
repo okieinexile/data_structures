@@ -22,6 +22,7 @@ class ReachableStates
     void find_all_final_states(void);
     size_t number_final_states(void);
     std::set<PegBoardPlay> final(void);
+    size_t number_of_ways(void);
 };
 
 ReachableStates::ReachableStates(PegBoardPlay& my_root)
@@ -63,11 +64,11 @@ void ReachableStates::find_all_final_states(void)
     {
       while(this->current().can_move())
       {
-        ++this->count;
         PegBoardPlay next = this->current().next_move();
         this->push_working(next);
       }
       this->push_final_states(this->current());
+      ++this->count;
     }
     else
     {
@@ -77,7 +78,6 @@ void ReachableStates::find_all_final_states(void)
       }
       else
       {
-
         this->pop_working();
       }
     }
@@ -94,4 +94,8 @@ std::set<PegBoardPlay> ReachableStates::final(void)
   return this->final_states;
 }
 
+size_t ReachableStates::number_of_ways(void)
+{
+  return this->count;
+}
 #endif

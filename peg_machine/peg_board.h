@@ -5,6 +5,7 @@
 
 typedef unsigned short int pb_code;
 
+template<size_t SIZE>
 class PegBoard 
 {
   private:
@@ -23,51 +24,59 @@ class PegBoard
     int complexity(void);
 };
 
-
+template<size_t SIZE>
 bool operator<(PegBoard pb1, PegBoard pb2);
 
-PegBoard::PegBoard(void)
+PegBoard<SIZE>::PegBoard(void)
 {
   this->state = 32767;
   this->empty_cell(4);
 }
 
-PegBoard::PegBoard(pb_code p_state)
+template<size_t SIZE>
+PegBoard<SIZE>::PegBoard(pb_code p_state)
 {
   this->state = p_state;
 }
 
-pb_code PegBoard::size(void)
+template<size_t SIZE>
+pb_code PegBoard<SIZE>::size(void)
 {
   return this->SIZE;
 }
 
-bool PegBoard::read_cell(size_t index)
+template<size_t SIZE>
+bool PegBoard<SIZE>::read_cell(size_t index)
 {
   return (this->state >> index) & 1;
 }
 
-void PegBoard::fill_cell(size_t index)
+template<size_t SIZE>
+void PegBoard<SIZE>::fill_cell(size_t index)
 {
   this->state |= (1UL << index);
 }
 
-void PegBoard::empty_cell(size_t index)
+template<size_t SIZE>
+void PegBoard<SIZE>::empty_cell(size_t index)
 {
   this->state &= ~(1UL << index); 
 }
 
-void PegBoard::toggle_cell(size_t index)
+template<size_t SIZE>
+void PegBoard<SIZE>::toggle_cell(size_t index)
 {
   this->state ^= (1UL << index);
 }
 
-pb_code PegBoard::code(void)
+template<size_t SIZE>
+pb_code PegBoard<SIZE>::code(void)
 {
   return this->state;
 }
 
-int PegBoard::complexity(void)
+template<size_t SIZE>
+int PegBoard<SIZE>::complexity(void)
 {
   int sum = 0;
   for(size_t i = 0; i < this->size(); ++i)
