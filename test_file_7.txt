@@ -1,0 +1,9 @@
+Size = 15 Cell = 7
+Complexity = 1 Frequency = 1
+Complexity = 2 Frequency = 8
+Complexity = 3 Frequency = 27
+Complexity = 4 Frequency = 32
+Complexity = 5 Frequency = 12
+Complexity = 6 Frequency = 6
+Complexity = 7 Frequency = 2
+Complexity = 10 Frequency = 1
